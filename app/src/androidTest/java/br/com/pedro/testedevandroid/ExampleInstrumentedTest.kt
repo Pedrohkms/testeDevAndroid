@@ -1,4 +1,4 @@
-package br.com.pedro.myapplication
+package br.com.pedro.testedevandroid
 
 import androidx.test.platform.app.InstrumentationRegistry
 import androidx.test.ext.junit.runners.AndroidJUnit4

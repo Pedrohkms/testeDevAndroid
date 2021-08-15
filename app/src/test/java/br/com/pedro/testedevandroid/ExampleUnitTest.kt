@@ -1,4 +1,4 @@
-package br.com.pedro.myapplication
+package br.com.pedro.testedevandroid
 
 import org.junit.Test
 
