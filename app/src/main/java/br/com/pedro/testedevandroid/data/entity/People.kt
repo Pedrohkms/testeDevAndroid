@@ -1,4 +1,4 @@
-package br.com.pedro.testedevandroid.model
+package br.com.pedro.testedevandroid.data.entity
 
 import com.google.gson.annotations.SerializedName
 
