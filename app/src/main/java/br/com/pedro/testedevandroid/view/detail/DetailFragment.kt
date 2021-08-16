@@ -7,6 +7,7 @@ import android.view.ViewGroup
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
+import br.com.pedro.testedevandroid.data.entity.CheckIn
 import br.com.pedro.testedevandroid.data.entity.Event
 import br.com.pedro.testedevandroid.databinding.FragmentDetailBinding
 import br.com.pedro.testedevandroid.utils.Resource
@@ -63,7 +64,15 @@ class DetailFragment : Fragment() {
         binding.date.text = dateString
         binding.description.text = event.description
 
+        doCheckInButton(event.id)
+    }
 
+    private fun doCheckInButton(id : Int) {
+        val nameCheckIn = binding.textFieldName.editText?.text.toString()
+        val emailCheckIn = binding.textFieldEmail.editText?.text.toString()
+        binding.button.setOnClickListener {
+            viewModel.doCheckIn(CheckIn(id.toString(), nameCheckIn, emailCheckIn))
+        }
     }
 
 
