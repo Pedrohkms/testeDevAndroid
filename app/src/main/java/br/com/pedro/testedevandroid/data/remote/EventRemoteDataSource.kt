@@ -1,5 +1,6 @@
 package br.com.pedro.testedevandroid.data.remote
 
+import br.com.pedro.testedevandroid.data.entity.CheckIn
 import javax.inject.Inject
 
 class EventRemoteDataSource @Inject constructor(
@@ -7,4 +8,5 @@ class EventRemoteDataSource @Inject constructor(
 ) : BaseDataSource() {
     suspend fun getEvents() = getResult { eventService.getEvents() }
     suspend fun getEvent(id: Int) = getResult { eventService.getEvent(id) }
+    suspend fun checkIn(body: CheckIn) = eventService.checkIn(body)
 }

@@ -1,10 +1,12 @@
 package br.com.pedro.testedevandroid.di
 
 import android.content.Context
+import br.com.pedro.testedevandroid.data.entity.CheckIn
 import br.com.pedro.testedevandroid.data.local.AppDatabase
 import br.com.pedro.testedevandroid.data.local.EventDao
 import br.com.pedro.testedevandroid.data.remote.EventRemoteDataSource
 import br.com.pedro.testedevandroid.data.remote.EventService
+import br.com.pedro.testedevandroid.data.repository.CheckInRepository
 import br.com.pedro.testedevandroid.data.repository.EventRepository
 import com.google.gson.Gson
 import com.google.gson.GsonBuilder
@@ -43,7 +45,8 @@ object AppModule {
 
     @Singleton
     @Provides
-    fun provideDatabase(@ApplicationContext appContext: Context) = AppDatabase.getDatabase(appContext)
+    fun provideDatabase(@ApplicationContext appContext: Context) =
+        AppDatabase.getDatabase(appContext)
 
     @Singleton
     @Provides
@@ -56,5 +59,10 @@ object AppModule {
         localDataSource: EventDao
     ) =
         EventRepository(remoteDataSource, localDataSource)
+
+    @Singleton
+    @Provides
+    fun provideCheckinRepository(remoteDataSource: EventRemoteDataSource) =
+        CheckInRepository(remoteDataSource)
 
 }
