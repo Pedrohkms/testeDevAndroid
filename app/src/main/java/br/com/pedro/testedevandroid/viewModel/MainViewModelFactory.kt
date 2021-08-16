@@ -1,4 +1,4 @@
-package br.com.pedro.testedevandroid
+package br.com.pedro.testedevandroid.viewModel
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider

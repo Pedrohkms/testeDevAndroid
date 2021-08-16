@@ -4,7 +4,7 @@ import com.google.gson.annotations.SerializedName
 
 data class Event(
     @SerializedName("people") val people : List<People>,
-    @SerializedName("date") val date : Int,
+    @SerializedName("date") val date : Long,
     @SerializedName("description") val description : String,
     @SerializedName("image") val image : String,
     @SerializedName("longitude") val longitude : Double,

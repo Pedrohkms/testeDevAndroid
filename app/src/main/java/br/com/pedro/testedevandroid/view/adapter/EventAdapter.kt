@@ -6,6 +6,8 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import br.com.pedro.testedevandroid.databinding.ItemListBinding
 import br.com.pedro.testedevandroid.model.Event
+import com.bumptech.glide.Glide
+import java.text.SimpleDateFormat
 
 class EventAdapter : RecyclerView.Adapter<MainViewHolder>() {
 
@@ -25,7 +27,11 @@ class EventAdapter : RecyclerView.Adapter<MainViewHolder>() {
 
     override fun onBindViewHolder(holder: MainViewHolder, position: Int) {
         val event = eventList[position]
-        holder.binding.name.text = event.title
+        val simpleDateFormat = SimpleDateFormat("dd/MM/yyyy")
+        val dateString = simpleDateFormat.format(event.date)
+        holder.binding.title.text = event.title
+        Glide.with(holder.itemView.context).load(event.image).into(holder.binding.imageview)
+        holder.binding.date.text = dateString
 
     }
 
