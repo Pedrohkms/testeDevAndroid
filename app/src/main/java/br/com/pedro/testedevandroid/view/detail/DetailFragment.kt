@@ -10,7 +10,10 @@ import androidx.fragment.app.viewModels
 import br.com.pedro.testedevandroid.data.entity.Event
 import br.com.pedro.testedevandroid.databinding.FragmentDetailBinding
 import br.com.pedro.testedevandroid.utils.Resource
+import com.bumptech.glide.Glide
 import dagger.hilt.android.AndroidEntryPoint
+import kotlinx.android.synthetic.main.item_list.*
+import java.text.SimpleDateFormat
 
 @AndroidEntryPoint
 class DetailFragment : Fragment() {
@@ -34,9 +37,9 @@ class DetailFragment : Fragment() {
         setupObservers()
     }
 
-    private fun setupObservers(){
-        viewModel.event.observe(viewLifecycleOwner,{
-            when(it.status){
+    private fun setupObservers() {
+        viewModel.event.observe(viewLifecycleOwner, {
+            when (it.status) {
                 Resource.Status.SUCCESS -> {
                     bindEvent(it.data!!)
                     binding.progressBar.visibility = View.GONE
@@ -53,7 +56,14 @@ class DetailFragment : Fragment() {
     }
 
     private fun bindEvent(event: Event) {
-        binding.oi.text = event.title
+        val simpleDateFormat = SimpleDateFormat("dd/MM/yyyy")
+        val dateString = simpleDateFormat.format(event.date)
+        binding.title.text = event.title
+        Glide.with(binding.root).load(event.image).into(binding.imageview)
+        binding.date.text = dateString
+        binding.description.text = event.description
+
+
     }
 
 

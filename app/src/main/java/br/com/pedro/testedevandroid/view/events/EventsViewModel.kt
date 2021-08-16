@@ -10,5 +10,4 @@ class EventsViewModel @Inject constructor(private val eventRepository: EventRepo
 
     val events = eventRepository.getEvents()
 
-
 }
