@@ -8,9 +8,9 @@ import androidx.lifecycle.ViewModelProvider
 import br.com.pedro.testedevandroid.EventAdapter
 import br.com.pedro.testedevandroid.ViewModel.MainViewModel
 import br.com.pedro.testedevandroid.model.api.RetrofitService
-import br.com.pedro.testedevandroid.ViewModelFactory
 import br.com.pedro.testedevandroid.databinding.ActivityMainBinding
 import br.com.pedro.testedevandroid.model.repository.EventRepository
+import br.com.pedro.testedevandroid.viewModel.ViewModelFactory
 
 class MainActivity : AppCompatActivity() {
     lateinit var viewModel: MainViewModel
